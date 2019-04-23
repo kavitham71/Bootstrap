@@ -1,0 +1,199 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <title>Bootstrap Example</title>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">  
+ <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+  
+  <!--<script src="ex-bp.js"></script> -->
+
+<script>
+     $(document).ready(function() {
+    $('#Login_form').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+        	uname: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+                        max:10,
+                    },
+                        notEmpty: {
+                        message: 'Please Provide your User name'
+                    }
+                }
+            },
+            eid: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please provide your employee-id'
+                    }
+                }
+            },
+
+            mobile: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please provide your phone number'
+                    },
+                    phone: {
+                        country: 'INDIA',
+                        message: 'Please provide a vaild phone number with area code/10-digits'
+                    }
+                }
+            },
+	 email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please provide your email address'
+                    },
+                    emailAddress: {
+                        message: 'Please provide a valid email address'
+                    }
+                }
+            },
+					
+            pwd: {
+            validators: {
+                identical: {
+                    field: 'confirmPassword',
+                    message: 'Should use min. 6 and max. 10 characters'
+                }
+            }
+        },
+        confirmPassword: {
+            validators: {
+                identical: {
+                    field: 'pwd',
+                    message: 'The password and its confirm should be same'
+                }
+            }
+         },
+			
+            
+            }
+        })
+});
+ 
+ 
+ 
+
+</script>
+   <!--<script src="confirm.js"></script> --> 
+<script>
+ function getConfirmation() {
+               var retVal = confirm("Do you want to Reset?");
+               
+            }
+</script>
+
+<style>
+.page-header{
+text-align: center;
+} 
+
+</style>
+
+</head>    
+<body>  
+<div class="container">
+ <div class="page-header">
+ <h3>Login Form</h3> 
+ </div>
+ 
+ <div class="jumbotron">
+             
+  <form role="form"  id="Login_form" action=" " method="post" > 
+  
+  
+   <div class="form-group">
+   <label class="col-md-4 control-label" for="uname">Username :</label>
+    <div class="col-md-6">   
+   <span> <i class="glyphicon glyphicon-user"></i></span>
+   <input type="text" class="form-control" name="uname" id="uname" placeholder="Enter Username" required>
+   
+   <div class="help-block with-errors"></div></div></div>
+   
+   <div class="form-group">
+   <label class="col-md-4 control-label" for="Pwd">Password :</label>
+    <div class="col-md-6">  
+   <input type="password" class="form-control" name="pwd" id="Pwd" placeholder="Enter password" required>
+<div class="help-block with-errors"></div>  
+</div>
+   </div>
+   
+   <div class="form-group">
+   <label class="col-md-4 control-label" for="confirmPassword">ConfirmPassword :</label>
+    <div class="col-md-6">  
+   <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" data-match="#confirmPassword" placeholder="Enter password" required>
+   </div>
+   </div>
+   
+   <div class="form-group">
+   <label for="eid">Employee-id :</label>
+   <div class="col-md-6"> 
+   <input type="number" class="form-control" name="eid" id="eid"  placeholder="Enter password" min="100" max="200" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+    <div class="form-group">
+   <label class="col-md-4 control-label" for="Email">Email-id :</label>
+   <div class="col-md-6"> 
+   <input type="email" name="email" class="form-control" id="Email-id" placeholder="Enter email address" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+   <div class="form-group>">
+   <label>Gender :</label><br/>
+   <div class="col-md-6"> 
+         <div class="radio">  
+      <label><input type="radio" name="gender"> Male</label>  
+    </div>  
+    <div class="radio">  
+      <label><input type="radio" name="gender">Female </label>  
+    </div> 
+    <div class="radio">  
+      <label><input type="radio" name="gender">Other </label>  
+    </div>
+    </div>
+    
+   </div>
+   <div class="form-group">
+   <label class="col-md-4 control-label" for="mobile">MobileNumber :</label>
+   <div class="col-md-6"> 
+   <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Enter Mobile-Number" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+  <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+   
+  <div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-6">
+    <button class="btn btn-primary" type="submit"> Login <span class="glyphicon glyphicon-send"></span></button>
+    <button class="btn btn-primary" type="reset" onclick = "getConfirmation();"> Reset </button>
+  </div>
+   </div>
+   
+ 
+  </form>
+  
+  </div>
+ 
+</div> 
+</body>  
+</html> 

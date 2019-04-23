@@ -1,0 +1,401 @@
+<html class="gr__localhost"><head><title>SubmitLogin-form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css.css">
+<link type="text/css" rel="stylesheet" href="style.css">    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+    <script src="jquery.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+ 
+        <script src="js/index.js"></script>
+        
+ <!--  
+<script>
+        $(document).ready(function(){
+        	  
+        	  $("button").click(function(event){
+        		    $("form").submit();
+        		    alert("Submitted");
+        		    $(input.placholder).focus();
+        		  });
+        	});
+        </script> -->
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+$('#Login_form').bootstrapValidator({
+ // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+ fields: {
+ 	uname: {
+         validators: {
+                 stringLength: {
+                 min: 5,
+                 max: 10,
+             },
+                 notEmpty: {
+                 message: 'Please supply your User name'
+             }
+         }
+     },
+     pwd: {
+         validators: {
+         	stringLength: {
+                 min: 6,
+                 max:10,
+             },
+             identical: {
+                 field: 'confirmPassword',
+                 message: 'Should use min. 6 and max. 10 characters '
+                 
+             }
+         }
+     },
+     confirmPassword: {
+         validators: {
+         	
+             identical: {
+                 field: 'pwd',
+                 message: 'The password and its confirm should be same'
+             }
+         }
+      },
+	
+
+     eid: {
+         validators: {
+
+             notEmpty: {
+                 message: 'Please provide your employee-id'
+             }
+         }
+     },
+     Email: {
+         validators: {
+             notEmpty: {
+                 message: 'Please supply your email address'
+             },
+             emailAddress: {
+                 message: 'Please supply a valid email address'
+             }
+         }
+     },
+    gender: {
+         validators: {
+
+             notEmpty: {
+                 message: 'Please provide your gender'
+             }
+         }
+     },
+
+
+
+     mobile: {
+         validators: {
+             notEmpty: {
+                 message: 'Please supply your phone number'
+             },
+             phone: {
+                 country: 'US',
+                 message: 'Please supply a vaild phone number with area code'
+             }
+         }
+     },
+		
+     
+     }
+ })
+ $("#Login_form").submit(function() {
+ 	var uname = $("#uname").val();
+ 	var pwd = $("#Pwd").val();
+ 	var cpwd = $("#confirmPassword").val();
+ 	var eid = $("#eid").val();
+ 	var dob = $("#dob").val();
+ 	var email = $("#Email-id").val();
+ 	var mobile = $("#mobile").val();
+ 	
+ 	
+ 	
+     if (uname!="" && pwd!="" && cpwd!="" && eid!="" && dob!="" && email !="" && gender!="" && mobile!="" ) {
+       
+        return  alert("Registration Successfull");
+     } else {
+        alert("Please Fill the form Correctly");
+        return false;
+     }
+  });
+
+});
+</script>
+
+<script>
+function getConfirmation() {
+    var retVal = confirm("Do you want to Reset?");
+    
+ }
+</script>
+  <style>
+.page-header{
+text-align: center;
+} 
+.a{
+text-align: center;
+
+border: 1px;
+border-color: pink;
+}
+.carousel-control-prev-icon{
+    bottom: 0;
+    color: #fff;
+}
+.carousel-indicators{
+top: -5px;
+color: blue;
+}
+/* .col-md-4{
+text-align: left;
+} */
+.container input:focus,
+.container input:valid
+{
+	border-bottom: 2px solid green ;
+}
+</style>
+        
+      
+</head>
+
+<body class="w3-light-grey" data-gr-c-s-loaded="true">
+
+<div class="container">
+ <div class="page-header">
+ <h3>Login Form</h3> 
+ </div>
+ 
+
+
+
+ 
+ <div class="jumbotron">
+             
+  <form class="form-horizontal"  id="Login_form" action=" " method="post" > 
+   <div class="form-group row ">
+    <div class="col-md-4 ">
+   <label class=" control-label" for="uname">Username :<span class="text-danger">(*)</span></label></div>
+    <div class="col-md-6 ">   
+    <input type="text" class="form-control" name="uname" id="uname"  placeholder="Enter Username" required>
+   </div> 
+   <div class="help-block with-errors"></div></div>
+   
+   <div class="form-group row">
+   <div class="col-md-4">
+   <label class="control-label" for="Pwd">Password :<span class="text-danger">(*)</span></label></div>
+    <div class="col-md-6 ">  
+   <input type="password" class="form-control" name="pwd" id="Pwd" placeholder="Enter password" required>
+   </div>
+   
+<div class="help-block with-errors"></div> 
+   </div>
+   
+   <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="confirmPassword">ConfirmPassword :<span class="text-danger">(*)</span></label>
+    </div>
+    <div class="col-md-6 ">  
+   <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" data-match="#confirmPassword" placeholder="Enter password" required>
+   </div>
+   
+   <div class="help-block with-errors"></div> 
+   </div>
+   
+   
+   <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="eid">Employee-id :<span class="text-danger">(*)</span></label></div>
+   <div class="col-md-6 "> 
+   <input type="number" class="form-control" name="eid" id="eid"  placeholder="Enter Employee-ID" min="100" max="200"  required>
+   </div>
+   <div class="help-block with-errors"></div>
+   </div>
+   
+    <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="dob">Date-Of-Birth :<span class="text-danger">(*)</span></label></div>
+   <div class="col-md-6 "> 
+   <input type="date" class="form-control" name="dob" id="dob"  placeholder="Enter DOB" required>
+   </div>
+   <div class="help-block with-errors"></div>
+   </div>
+   
+    <div class="form-group row">
+    <div class="col-md-4 ">
+   <label class="control-label" for="Email">Email-id :<span class="text-danger">(*)</span></label></div>
+   <div class="col-md-6 "> 
+   <input type="email" name="email" class="form-control" id="Email-id" placeholder="Enter email address" required>
+   </div>
+   <div class="help-block with-errors"></div>
+   
+   </div>
+   
+    <div class="form-group row">
+    <div class="col-md-4 ">
+   <label class="control-label" for="desc">Description :</label></div>
+   <div class="col-md-6 "> 
+   <textarea name="description" class="form-control" id="desc" rows="10" placeholder="Enter description" ></textarea>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+   
+    <div class="form-group row">
+    <div class="col-md-4 ">
+   <label class="control-label" for="desc">Choose Languages:</label></div>
+   <div class="col-md-6 "> 
+    <div class="checkbox">
+    <label>
+    <input type="checkbox" value="Java"/> JAva
+    </label>
+    </div>
+     <div class="checkbox">
+    <label>
+    <input type="checkbox" value="Python"/> PYthon
+    </label>
+    </div>
+     <div class="checkbox">
+    <label>
+    <input type="checkbox" value="GO"/> GO
+    </label>
+    </div>
+   
+   </div>
+   </div>
+   
+    <div class="form-group row">
+    <div class="col-md-4 ">
+   <label class="control-label" for="desc">District :</label></div>
+   <div class="col-md-6 "> 
+     <select class="form-control">
+     <option> Choose one </option>
+     <option> Hyderabad</option>
+     <option> Siddipet</option>
+     <option> Medak</option>
+     <option> KNMR</option>
+     <option> Rangareddy</option>
+     </select>
+
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+   
+  <!--   <div class="form-group row">
+    <div class="col-md-4 col-xs-4">
+   <label class="control-label" for="Email">District :</label></div>
+   <div class="col-md-6 col-xs-8"> 
+  <div class="btn-group">
+  <button class="btn btn-primary"> Select district</button>
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+  <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  <li>aaaa</li>
+  <li>aa</li>
+  </ul>
+</div>
+   
+   </div>
+   </div>
+    -->
+   
+  <!--   <div class="form-group row">
+    <div class="col-md-4">
+   <label class="control-label" for="Email">District :</label></div>
+   <div class="col-md-6"> 
+   <input type="text" name="email" class="form-control dropdown" id="Email-id" placeholder="Select a District" data-toggle="dropdown" required>
+   
+     <span class="dropdown-toggle" data-toggle="dropdown">
+      Select a District <span class="caret"></span>
+     </span>
+     <select class=" dropdown-toggle dropdown-menu" >
+    <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+   
+</select>
+  
+    
+    
+   <div class="help-block with-errors"></div>
+   </div> 
+   </div>  -->
+   
+   
+   <div class="form-group row">
+   <div class="col-md-4">
+   <label class="control-label">Gender :</label><br/></div>
+   <div class="col-md-6"> 
+         <div class="radio">  
+      <label><input type="radio" name="gender"> Male</label>  
+    </div>  
+    <div class="radio">  
+      <label><input type="radio" name="gender">Female </label>  
+    </div> 
+    <div class="radio">  
+      <label><input type="radio" name="gender">Other </label>  
+    </div>
+    </div>
+    
+   </div>
+   <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="mobile">MobileNumber :<span class="text-danger">(*)</span></label></div>
+   <div class="col-md-6 "> 
+   <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Enter Mobile-Number" required>
+   </div>
+   <div class="help-block with-errors"></div>
+   
+   </div>
+   <div class="form-group ">
+  <div class="checkbox ">
+  <div class="col-md-4 ">
+      <label class="control-label">
+      
+      <input type="checkbox" name="remember"> Remember me</label></div>
+    
+    </div>
+   </div>
+  <div class="form-group row">
+  <div class="col-md-4 ">
+  <label class="control-label"></label></div>
+  <div class="col-md-6 ">
+  
+   
+   <input type="submit" class="btn btn-primary" value="Login">
+   
+    <input class="btn btn-warning" type="reset" onclick = "getConfirmation();" value="Reset">  
+    
+  </div>
+   </div>
+   
+ 
+  </form>
+  
+  </div>
+ 
+</div> 
+
+
+</body>
+</html>

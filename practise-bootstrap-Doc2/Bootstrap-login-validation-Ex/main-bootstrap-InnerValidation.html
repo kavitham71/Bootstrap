@@ -1,0 +1,85 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <title>Bootstrap Example</title>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>  
+  <script src="confirm.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+<style>
+.page-header{
+text-align: center;
+} 
+
+</style>
+
+</head>    
+<body>  
+<div class="container">
+ <div class="page-header">
+ <h3>Login Form</h3> 
+ </div>
+ 
+ <div class="jumbotron">
+             
+  <form role="form" data-toggle="validator" id="Login_form"> 
+   <div class="form-group">
+   <label class="control-label" for="uname">Username :</label>
+   <input type="text" class="form-control " data-minlength="4" data-error="Please enter name field with 4 characters minimum." id="uname" placeholder="Enter Username" required>
+    <div class="help-block with-errors"></div>
+   </div>
+   
+   <div class="form-group">
+   <label for="Pwd">Password :</label>
+   <input type="password" class="form-control" id="Pwd" data-error="Please enter password field." placeholder="Enter password" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   
+   
+   <div class="form-group">
+   <label for="eid">Employee-id :</label>
+   <input type="number" class="form-control" id="eid" data-error="Please enter emp-id field." placeholder="Enter password" min="100" max="200" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   
+    <div class="form-group">
+   <label for="Email-id">Email-id :</label>
+   <input type="email" class="form-control" id="Email-id" data-error="Please enter email-id " placeholder="Enter email address" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   <div class="form-group>">
+   <label>Gender :</label><br/>
+         <div class="radio">  
+      <label><input type="radio" name="gender"> Male</label>  
+    </div>  
+    <div class="radio">  
+      <label><input type="radio" name="gender">Female </label>  
+    </div> 
+    <div class="radio">  
+      <label><input type="radio" name="gender">Other </label>  
+    </div>
+    
+   </div>
+   <div class="form-group">
+   <label for="mobile">MobileNumber :</label>
+   <input type="tel" class="form-control" id="mobile" data-error="Please enter mobile no.." placeholder="Enter Mobile-Number" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   
+  <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+   
+  <div class="form-group">
+    <button class="btn btn-primary" type="submit"> Login </button>
+    <button class="btn btn-primary" type="reset" onclick = "getConfirmation();"> Reset </button>
+   </div>
+  </form>
+  </div>
+</div> 
+</body>  
+</html> 

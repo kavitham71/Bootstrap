@@ -1,0 +1,300 @@
+<html class="gr__localhost"><head><title>MAin-Login-form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css.css">
+<link type="text/css" rel="stylesheet" href="style.css">    
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+    <script src="jquery.min.js"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
+ 
+        <script src="js/index.js"></script>
+ <script>
+        $(document).ready(function(){
+        	  
+        	  $("button").click(function(event){
+        		    $("form").submit();
+        		    alert("Submitted");
+        		    $(input.placholder).focus();
+        		  });
+        	});
+        </script>
+ 
+ <script type="text/javascript">
+ 
+   $(document).ready(function() {
+    $('#Login_form').bootstrapValidator({
+        // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+        	uname: {
+                validators: {
+                        stringLength: {
+                        min: 5,
+                        max: 10,
+                    },
+                        notEmpty: {
+                        message: 'Please supply your User name'
+                    }
+                }
+            },
+            pwd: {
+                validators: {
+                	stringLength: {
+                        min: 6,
+                        max:10,
+                    },
+                    identical: {
+                        field: 'confirmPassword',
+                        message: 'Should use min. 6 and max. 10 characters '
+                        
+                    }
+                }
+            },
+            confirmPassword: {
+                validators: {
+                	
+                    identical: {
+                        field: 'pwd',
+                        message: 'The password and its confirm should be same'
+                    }
+                }
+             },
+		
+
+            eid: {
+                validators: {
+
+                    notEmpty: {
+                        message: 'Please provide your employee-id'
+                    }
+                }
+            },
+            Email: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your email address'
+                    },
+                    emailAddress: {
+                        message: 'Please supply a valid email address'
+                    }
+                }
+            },
+
+
+            mobile: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your phone number'
+                    },
+                    phone: {
+                        country: 'US',
+                        message: 'Please supply a vaild phone number with area code'
+                    }
+                }
+            },
+			
+            
+            }
+        })
+	
+});
+ 
+ 
+ 
+ </script>
+  <style>
+.page-header{
+text-align: center;
+} 
+.a{
+text-align: center;
+
+border: 1px;
+border-color: pink;
+}
+.carousel-control-prev-icon{
+    bottom: 0;
+    color: #fff;
+}
+.carousel-indicators{
+top: -5px;
+color: blue;
+}
+/* .col-md-4{
+text-align: left;
+} */
+</style>
+        
+        
+</head>
+
+<body class="w3-light-grey" data-gr-c-s-loaded="true">
+
+<div class="container">
+ <div class="page-header">
+ <h3>Login Form</h3> 
+ </div>
+ 
+
+
+
+ 
+ <div class="jumbotron">
+             
+  <form class="form-horizontal"  id="Login_form" action=" " method="post" > 
+   <div class="form-group row ">
+    <div class="col-md-4 ">
+   <label class=" control-label" for="uname">Username :</label></div>
+    <div class="col-md-6 ">   
+    <input type="text" class="form-control" name="uname" id="uname"  placeholder="Enter Username" required>
+   </div>
+   <div class="help-block with-errors"></div></div>
+   
+   <div class="form-group row">
+   <div class="col-md-4">
+   <label class="control-label" for="Pwd">Password :</label></div>
+    <div class="col-md-6 ">  
+   <input type="password" class="form-control" name="pwd" id="Pwd" placeholder="Enter password" required>
+<div class="help-block with-errors"></div>  
+</div>
+   </div>
+   
+   <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="confirmPassword">ConfirmPassword :</label>
+    </div>
+    <div class="col-md-6 ">  
+   <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" data-match="#confirmPassword" placeholder="Enter password" required>
+   </div>
+   </div>
+   
+   <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="eid">Employee-id :</label></div>
+   <div class="col-md-6 "> 
+   <input type="number" class="form-control" name="eid" id="eid"  placeholder="Enter password" min="100" max="200"  required>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+    <div class="form-group row">
+    <div class="col-md-4 ">
+   <label class="control-label" for="Email">Email-id :</label></div>
+   <div class="col-md-6 "> 
+   <input type="email" name="email" class="form-control" id="Email-id" placeholder="Enter email address" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   
+  <!--   <div class="form-group row">
+    <div class="col-md-4 col-xs-4">
+   <label class="control-label" for="Email">District :</label></div>
+   <div class="col-md-6 col-xs-8"> 
+  <div class="btn-group">
+  <button class="btn btn-primary"> Select district</button>
+  <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+  <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+  <li>aaaa</li>
+  <li>aa</li>
+  </ul>
+</div>
+   
+   </div>
+   </div>
+    -->
+   
+  <!--   <div class="form-group row">
+    <div class="col-md-4">
+   <label class="control-label" for="Email">District :</label></div>
+   <div class="col-md-6"> 
+   <input type="text" name="email" class="form-control dropdown" id="Email-id" placeholder="Select a District" data-toggle="dropdown" required>
+   
+     <span class="dropdown-toggle" data-toggle="dropdown">
+      Select a District <span class="caret"></span>
+     </span>
+     <select class=" dropdown-toggle dropdown-menu" >
+    <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+   
+</select>
+  
+    
+    
+   <div class="help-block with-errors"></div>
+   </div>
+   </div> -->
+   
+   
+   <div class="form-group row">
+   <div class="col-md-4">
+   <label class="control-label">Gender :</label><br/></div>
+   <div class="col-md-6"> 
+         <div class="radio">  
+      <label><input type="radio" name="gender"> Male</label>  
+    </div>  
+    <div class="radio">  
+      <label><input type="radio" name="gender">Female </label>  
+    </div> 
+    <div class="radio">  
+      <label><input type="radio" name="gender">Other </label>  
+    </div>
+    </div>
+    
+   </div>
+   <div class="form-group row">
+   <div class="col-md-4 ">
+   <label class="control-label" for="mobile">MobileNumber :</label></div>
+   <div class="col-md-6 "> 
+   <input type="tel" name="mobile" class="form-control" id="mobile" placeholder="Enter Mobile-Number" required>
+   <div class="help-block with-errors"></div>
+   </div>
+   </div>
+   <div class="form-group ">
+  <div class="checkbox ">
+  <div class="col-md-4 ">
+      <label class="control-label">
+      
+      <input type="checkbox" name="remember"> Remember me</label></div>
+    
+    </div>
+   </div>
+  <div class="form-group row">
+  <div class="col-md-4 ">
+  <label class="control-label"></label></div>
+  <div class="col-md-6 ">
+  
+  <button class="btn btn-primary"> Login <span class=" glyphicon  glyphicon-send"> </span></button>
+   <!-- <input type="submit" class= "btn btn-primary " value="Login" > -->
+    <input class="btn btn-warning" type="reset" onclick = "getConfirmation();" value="Reset">  
+    
+  </div>
+   </div>
+   
+ 
+  </form>
+  
+  </div>
+ 
+</div> 
+
+
+</body>
+</html>
